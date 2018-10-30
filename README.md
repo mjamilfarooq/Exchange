@@ -1,5 +1,5 @@
 # Exchange
-Limit order exchange implemented with all standard library. 
+Limit order exchange implemented with all standard library. To ensure ordering in the priority_queue timestamping is used. Each order is timestamped at entrance of exchange.
 
 Dependencies:
 

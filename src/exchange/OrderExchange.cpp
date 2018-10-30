@@ -44,11 +44,17 @@ Trades OrderExchange::matchAndTrade(Order order)
 {
 	Trades trades;
 	TRACE(logger, "new order update "+ order.to_string());
+
+	mtx.lock();
 	auto isexist = instrumentMap.find(order.getInstrument());
+	mtx.unlock();
+
 	if (isexist == instrumentMap.end())
 	{
 		TRACE(logger, "new entry for instrument");
+		mtx.lock();
 		auto entry = instrumentMap.emplace(order.getInstrument(), logger);
+		mtx.unlock();
 		if (!entry.second)
 		{
 			FATAL(logger, "Can't create Instrument ledger");

@@ -45,6 +45,7 @@ private:
 	shared_ptr<AbstractTradeConsole> tradeConsole;
 	ILogger* logger;
 	InstrumentMap instrumentMap;
+	mutex mtx;
 };
 
 #endif /* EXCHANGE_ORDEREXCHANGE_H_ */
