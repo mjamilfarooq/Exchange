@@ -1,0 +1,68 @@
+[Tue Oct 30 23:40:49 2018] (INFO)  main@../src/Exchange.cpp(55): trade file name: test_data/trade.txt order file name: test_data/orders2.txt
+[Tue Oct 30 23:40:49 2018] (TRACE)  OrderExchange@../src/exchange/OrderExchange.cpp(12): Initializing order Exchange
+[Tue Oct 30 23:40:49 2018] (TRACE)  OrderConsole@../src/console/OrderConsole.cpp(12): Initialization of Order Console
+[Tue Oct 30 23:40:49 2018] (TRACE)  connect@../src/exchange/OrderExchange.cpp(17): adding publisher
+[Tue Oct 30 23:40:49 2018] (INFO)  connect@../src/exchange/OrderExchange.cpp(21): publisher registered!!
+[Tue Oct 30 23:40:49 2018] (TRACE)  connect@../src/exchange/OrderExchange.cpp(29): connecting to trade console!!
+[Tue Oct 30 23:40:49 2018] (TRACE)  OrderFile@../src/fs/OrderFile.cpp(12): Initialization of Order File test_data/orders2.txt
+[Tue Oct 30 23:40:49 2018] (TRACE)  connect@../src/exchange/OrderExchange.cpp(17): adding publisher
+[Tue Oct 30 23:40:49 2018] (INFO)  connect@../src/exchange/OrderExchange.cpp(21): publisher registered!!
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/fs/OrderFile.cpp(23): Start capturing orders from File
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/fs/OrderFile.cpp(27): new order B:EURUSD:-100:1.110000
+[Tue Oct 30 23:40:49 2018] (DEBUG)  run@../src/fs/OrderFile.cpp(30): new order is valid B:EURUSD:-100:1.110000
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/OrderExchange.cpp(35): updating instruments position and matching for trades
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(46): new order update B:EURUSD:-100:1.110000
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(50): new entry for instrument
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(58): entry agaist new instrument is registered!!
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(25): updating Instrument order ledger
+[Tue Oct 30 23:40:49 2018] (DEBUG)  update@../src/exchange/InstrumentLedger.cpp(125): update partial/complete order is entered into ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(67): new order updated!!
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/fs/OrderFile.cpp(27): new order F:EURUSD:-50:1.100000
+[Tue Oct 30 23:40:49 2018] (DEBUG)  run@../src/fs/OrderFile.cpp(30): new order is valid F:EURUSD:-50:1.100000
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/OrderExchange.cpp(35): updating instruments position and matching for trades
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(46): new order update F:EURUSD:-50:1.100000
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(63): symbol is already registered...updating instrument ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(25): updating Instrument order ledger
+[Tue Oct 30 23:40:49 2018] (DEBUG)  update@../src/exchange/InstrumentLedger.cpp(125): update partial/complete order is entered into ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(67): new order updated!!
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/fs/OrderFile.cpp(27): new order D:EURUSD:100:1.110000
+[Tue Oct 30 23:40:49 2018] (DEBUG)  run@../src/fs/OrderFile.cpp(30): new order is valid D:EURUSD:100:1.110000
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/OrderExchange.cpp(35): updating instruments position and matching for trades
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(46): new order update D:EURUSD:100:1.110000
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(63): symbol is already registered...updating instrument ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(25): updating Instrument order ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(30): order received is buy
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(37): buy price is >= least sell price
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(38): trade should take place at sell price
+[Tue Oct 30 23:40:49 2018] (DEBUG)  update@../src/exchange/InstrumentLedger.cpp(61): current buy order size is greater than top sell order
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(67): modify coming order to new quantity 50
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(37): buy price is >= least sell price
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(38): trade should take place at sell price
+[Tue Oct 30 23:40:49 2018] (DEBUG)  update@../src/exchange/InstrumentLedger.cpp(44): both order with same size
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(52): modify top order to new quantity -50
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(67): new order updated!!
+[Tue Oct 30 23:40:49 2018] (INFO)  update@../src/fs/TradeFile.cpp(26): updating trade information on trade file console D:F:EURUSD:50:1.100000
+[Tue Oct 30 23:40:49 2018] (INFO)  update@../src/fs/TradeFile.cpp(26): updating trade information on trade file console D:B:EURUSD:50:1.110000
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/fs/OrderFile.cpp(27): new order N:EURUSD:50:1.120000
+[Tue Oct 30 23:40:49 2018] (DEBUG)  run@../src/fs/OrderFile.cpp(30): new order is valid N:EURUSD:50:1.120000
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/OrderExchange.cpp(35): updating instruments position and matching for trades
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(46): new order update N:EURUSD:50:1.120000
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(63): symbol is already registered...updating instrument ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(25): updating Instrument order ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(30): order received is buy
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(37): buy price is >= least sell price
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(38): trade should take place at sell price
+[Tue Oct 30 23:40:49 2018] (DEBUG)  update@../src/exchange/InstrumentLedger.cpp(44): both order with same size
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(67): new order updated!!
+[Tue Oct 30 23:40:49 2018] (INFO)  update@../src/fs/TradeFile.cpp(26): updating trade information on trade file console N:B:EURUSD:50:1.110000
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/fs/OrderFile.cpp(27): new order A:EURUSD:100:1.120000
+[Tue Oct 30 23:40:49 2018] (DEBUG)  run@../src/fs/OrderFile.cpp(30): new order is valid A:EURUSD:100:1.120000
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/OrderExchange.cpp(35): updating instruments position and matching for trades
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(46): new order update A:EURUSD:100:1.120000
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(63): symbol is already registered...updating instrument ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(25): updating Instrument order ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  update@../src/exchange/InstrumentLedger.cpp(30): order received is buy
+[Tue Oct 30 23:40:49 2018] (DEBUG)  update@../src/exchange/InstrumentLedger.cpp(75): update partial/complete order is entered into ledger
+[Tue Oct 30 23:40:49 2018] (TRACE)  matchAndTrade@../src/exchange/OrderExchange.cpp(67): new order updated!!
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/fs/OrderFile.cpp(37): order file ending
+[Tue Oct 30 23:40:49 2018] (TRACE)  run@../src/console/OrderConsole.cpp(18): Start capturing orders from console

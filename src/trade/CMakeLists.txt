@@ -1,0 +1,6 @@
+set(HEADERS
+   ${HEADERS}
+   ${CMAKE_CURRENT_SOURCE_DIR}/AbstractTradeConsole.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/Trade.h
+   PARENT_SCOPE
+)

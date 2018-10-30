@@ -1,0 +1,7 @@
+set(HEADERS
+   ${HEADERS}
+   ${CMAKE_CURRENT_SOURCE_DIR}/AbstractOrderPublisher.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/IOrderSubscriber.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/Order.h
+   PARENT_SCOPE
+)

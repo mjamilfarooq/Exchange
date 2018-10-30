@@ -1,0 +1,11 @@
+set(HEADERS
+   ${HEADERS}
+   ${CMAKE_CURRENT_SOURCE_DIR}/TestSuit.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/TestFailedException.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderTest.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderQueueTest.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderExecutionTests.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderExchangeTests.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/AllTests.h
+   PARENT_SCOPE
+)

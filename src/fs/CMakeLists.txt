@@ -1,0 +1,13 @@
+set(SOURCE
+   ${SOURCE}
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderFile.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/TradeFile.cpp
+   PARENT_SCOPE
+)
+
+set(HEADERS
+   ${HEADERS}
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderFile.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/TradeFile.h
+   PARENT_SCOPE
+)

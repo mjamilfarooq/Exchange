@@ -1,0 +1,14 @@
+set(SOURCE
+   ${SOURCE}
+   ${CMAKE_CURRENT_SOURCE_DIR}/ConsoleLogger.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/FileLogger.cpp
+   PARENT_SCOPE
+)
+
+set(HEADERS
+   ${HEADERS}
+   ${CMAKE_CURRENT_SOURCE_DIR}/ConsoleLogger.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/FileLogger.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/ILogger.h
+   PARENT_SCOPE
+)

@@ -1,0 +1,11 @@
+set(SOURCE
+   ${SOURCE}
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderConsole.cpp
+   PARENT_SCOPE
+)
+
+set(HEADERS
+   ${HEADERS}
+   ${CMAKE_CURRENT_SOURCE_DIR}/OrderConsole.h
+   PARENT_SCOPE
+)

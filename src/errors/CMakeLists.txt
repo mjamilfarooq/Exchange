@@ -1,0 +1,6 @@
+
+set(HEADERS
+   ${HEADERS}
+   ${CMAKE_CURRENT_SOURCE_DIR}/messages.h
+   PARENT_SCOPE
+)
