@@ -9,7 +9,7 @@
 
 #include "TestSuit.h"
 #include "../exchange/InstrumentLedger.h"
-#include "../logger/ConsoleLogger.h"
+#include "../logger/FileLogger.h"
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -39,14 +39,14 @@ TEST_SUIT(OrderExecutionTests)
 //					"D:B:EURUSD:50:1.11",
 			};
 
-			InstrumentLedger ledger(ConsoleLogger::getLogger());
+			InstrumentLedger ledger(FileLogger::getLogger());
 			vector<Trade> trades;
 			for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 				Order order;
 				stringstream stream(order_str);
 				stream>>order;
 
-				cout<<order;
+//				cout<<order;
 				auto temp = ledger.update(order);
 				if (temp.size())
 				trades.insert(trades.end(), temp.begin(), temp.end());
@@ -82,14 +82,14 @@ TEST_SUIT(OrderExecutionTests)
 					"D:B:EURUSD:50:1.11",
 		};
 
-		InstrumentLedger ledger(ConsoleLogger::getLogger());
+		InstrumentLedger ledger(FileLogger::getLogger());
 		vector<Trade> trades;
 		for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 			Order order;
 			stringstream stream(order_str);
 			stream>>order;
 
-			cout<<order;
+//			cout<<order;
 			auto temp = ledger.update(order);
 			if (temp.size())
 			trades.insert(trades.end(), temp.begin(), temp.end());

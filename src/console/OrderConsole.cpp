@@ -18,9 +18,11 @@ void OrderConsole::run() {
 	TRACE(logger, "Start capturing orders from console");
 	while(true) {
 		Order order;
-		try {
+		try
+		{
 			cin>>order;
-		} catch(exception ex)
+		}
+		catch(exception &ex)
 		{
 			TRACE(logger, ex.what());
 			continue;

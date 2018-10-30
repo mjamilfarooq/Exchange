@@ -11,7 +11,9 @@
 #include <string>
 #include <ostream>
 #include <exception>
+#include <chrono>
 
+#include "../errors/messages.h"
 #include "../utils/utility_functions.h"
 
 using namespace std;
@@ -77,7 +79,7 @@ public:
 
 		if (split.size()!=4)
 		{
-			throw runtime_error("Invalid order format");
+			throw runtime_error(INVALID_ORDER_FORMAT);
 		}
 
 		order.id = split[0];
@@ -103,11 +105,20 @@ public:
 
 	bool operator < (const Order &order2) const
 	{
+
+		if  (fabs(this->limit_price - order2.limit_price)<0.00001)
+		{
+			return this->time > order2.time;
+		}
 		return this->limit_price < order2.limit_price;
 	}
 
 	bool operator > (const Order &order2) const
 	{
+		if  (fabs(this->limit_price - order2.limit_price)<0.00001)
+		{
+			return this->time > order2.time;
+		}
 		return this->limit_price > order2.limit_price;
 	}
 
@@ -136,12 +147,19 @@ public:
 	double getLimitPrice() const { return limit_price; }
 
 
+	void timestamp() {
+		time = chrono::system_clock::now();
+	}
 
 private:
 	string id;
 	string instrument;
 	mutable int quantity;
 	double limit_price;
+
+	//Time stamped
+	chrono::system_clock::time_point time;
+
 
 };
 

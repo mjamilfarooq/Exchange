@@ -8,6 +8,7 @@
 #ifndef EXCHANGE_INSTRUMENTLEDGER_H_
 #define EXCHANGE_INSTRUMENTLEDGER_H_
 
+
 #include <queue>
 #include <mutex>
 
@@ -17,8 +18,9 @@
 #include "../logger/ILogger.h"
 #include "../trade/Trade.h"
 
-using LongOrderQueue = std::priority_queue<Order, std::vector<Order>, std::less_equal<Order>>;
-using ShortOrderQueue = std::priority_queue<Order, std::vector<Order>, std::greater_equal<Order>>;
+using namespace std;
+using LongOrderQueue = std::priority_queue<Order, std::deque<Order>, std::less<Order>>;
+using ShortOrderQueue = std::priority_queue<Order, std::deque<Order>, std::greater<Order>>;
 
 
 using namespace std;

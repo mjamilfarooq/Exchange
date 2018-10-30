@@ -23,7 +23,14 @@ void OrderFile::run() {
 	TRACE(logger, "Start capturing orders from File");
 	while(!orderFile.eof()) {
 		Order order;
-		orderFile>>order;
+		try
+		{
+			orderFile>>order;
+		}
+		catch(exception &ex)
+		{
+			TRACE(logger, ex.what());
+		}
 		TRACE(logger, "new order " + order.to_string());
 		if (order.isValid())
 		{

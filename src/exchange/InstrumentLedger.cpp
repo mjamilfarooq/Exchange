@@ -29,6 +29,7 @@ void InstrumentLedger::setLogger(ILogger* logger) {
 
 vector<Trade> InstrumentLedger::update(Order order) {
 	lock_guard<mutex> lock(mtx);
+	order.timestamp();
 	TRACE(logger, "updating Instrument order ledger");
 
 	vector<Trade> trades;

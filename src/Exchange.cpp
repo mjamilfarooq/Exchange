@@ -24,15 +24,8 @@
 using namespace std;
 
 
-
-
 int main(int argc, char **argv) {
 	auto logger = FileLogger::getLogger(SeverityLevel::TRACE);
-
-#ifdef RUN_TESTS_ONLY
-	run_all_tests();
-	exit(0);
-#endif
 
 	string orderFileName;
 	string tradeFileName;
