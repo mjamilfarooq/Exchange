@@ -12,25 +12,23 @@
 #include <mutex>
 #include <iostream>
 
-using namespace std;
-
 class ConsoleLogger: public ILogger {
 public:
 	static ConsoleLogger* getLogger(SeverityLevel severity  = SeverityLevel::TRACE);
 
-	void trace(string msg) override;
-	void debug(string msg) override;
-	void info(string msg) override;
-	void warn(string msg) override;
-	void error(string msg) override;
-	void fatal(string msg) override;
+	void trace(std::string msg) override;
+	void debug(std::string msg) override;
+	void info(std::string msg) override;
+	void warn(std::string msg) override;
+	void error(std::string msg) override;
+	void fatal(std::string msg) override;
 
 	virtual ~ConsoleLogger();
 private:
 	static ConsoleLogger *logger;
 	ConsoleLogger(SeverityLevel severity = SeverityLevel::TRACE);
-	void message(string);
-	static mutex mtx;
+	void message(std::string);
+	static std::mutex mtx;
 };
 
 #endif /* LOGGER_CONSOLELOGGER_H_ */

@@ -21,18 +21,16 @@
 #include "../trade/AbstractTradeConsole.h"
 #include "InstrumentLedger.h"
 
-using namespace std;
 
-
-using InstrumentMap = unordered_map<string, InstrumentLedger>;
-using Trades = vector<Trade>;
+using InstrumentMap = std::unordered_map<std::string, InstrumentLedger>;
+using Trades = std::vector<Trade>;
 
 class OrderExchange:public IOrderSubscriber {
 
 public:
 	OrderExchange(ILogger *);
-	void connect(shared_ptr<AbstractOrderPublisher>&);
-	void connect(shared_ptr<AbstractTradeConsole>&);
+	void connect(std::shared_ptr<AbstractOrderPublisher>&);
+	void connect(std::shared_ptr<AbstractTradeConsole>&);
 	virtual void update(Order) override;
 	Trades matchAndTrade(Order);
 	void run();
@@ -41,11 +39,11 @@ public:
 
 
 private:
-	vector<shared_ptr<AbstractOrderPublisher>> order_publishers;
-	shared_ptr<AbstractTradeConsole> tradeConsole;
+	std::vector<std::shared_ptr<AbstractOrderPublisher>> order_publishers;
+	std::shared_ptr<AbstractTradeConsole> tradeConsole;
 	ILogger* logger;
 	InstrumentMap instrumentMap;
-	mutex mtx;
+	std::mutex mtx;
 };
 
 #endif /* EXCHANGE_ORDEREXCHANGE_H_ */

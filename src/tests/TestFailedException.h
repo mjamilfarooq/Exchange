@@ -10,11 +10,10 @@
 
 #include <string>
 
-using namespace std;
 
 class TestFailedException: public exception {
 public:
-	TestFailedException(string file_name, uint32_t lineno, string function_name, string message)
+	TestFailedException(std::string file_name, uint32_t lineno, std::string function_name, std::string message)
 	{
 		this->message = "Test Failed: (" + file_name + "," + function_name + "," + to_string(lineno) + "," + message + ")";
 	}
@@ -24,7 +23,7 @@ public:
 	}
 
 private:
-	string message;
+	std::string message;
 };
 
 #define THROW_TEST_FAILED_EXCEPTION(message) \

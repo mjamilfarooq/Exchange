@@ -14,7 +14,6 @@
 #include <algorithm>
 #include <sstream>
 
-using namespace std;
 
 TEST_SUIT(OrderQueueTest)
 	TEST_CASE_BEGIN(test_long_order_queue)
@@ -22,7 +21,7 @@ TEST_SUIT(OrderQueueTest)
 		LongOrderQueue longQueue;
 
 		//all long orders for same symbols
-		vector<string> test_vector = {
+std::vector<std::string> test_vector = {
 				"A:GBPUSD:100:1.66",
 				"B:GBPUSD:100:1.66",
 				"C:GBPUSD:50:1.1",
@@ -33,7 +32,7 @@ TEST_SUIT(OrderQueueTest)
 		};
 
 		//expected result of queuing
-		vector<string> result_vector = {
+std::vector<std::string> result_vector = {
 				"F:GBPUSD:20:1.7",
 				"A:GBPUSD:100:1.66",
 				"B:GBPUSD:100:1.66",
@@ -44,7 +43,7 @@ TEST_SUIT(OrderQueueTest)
 		};
 
 
-		for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
+std::for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 			Order order;
 			stringstream stream(order_str);
 			stream>>order;
@@ -52,9 +51,9 @@ TEST_SUIT(OrderQueueTest)
 			longQueue.push(order);
 		});
 
-		for_each(result_vector.begin(), result_vector.end(), [&](string order_str){
+std::for_each(result_vector.begin(), result_vector.end(), [&](string order_str){
 			Order expected;
-			stringstream stream(order_str);
+			std::stringstream stream(order_str);
 			stream>>expected;
 			Order actual;
 			if ( !longQueue.empty() ) actual = longQueue.top();
@@ -72,7 +71,7 @@ TEST_SUIT(OrderQueueTest)
 			LongOrderQueue longQueue;
 
 			//all long orders for same symbols
-			vector<string> test_vector = {
+	std::vector<std::string> test_vector = {
 					"A:GBPUSD:100:1.66",
 					"B:GBPUSD:100:1.66",
 					"C:GBPUSD:100:1.66",
@@ -83,7 +82,7 @@ TEST_SUIT(OrderQueueTest)
 			};
 
 			//expected result of queuing
-			vector<string> result_vector = {
+	std::vector<std::string> result_vector = {
 					"A:GBPUSD:100:1.66",
 					"B:GBPUSD:100:1.66",
 					"C:GBPUSD:100:1.66",
@@ -94,17 +93,17 @@ TEST_SUIT(OrderQueueTest)
 			};
 
 
-			for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
+	std::for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 				Order order;
-				stringstream stream(order_str);
+				std::stringstream stream(order_str);
 				stream>>order;
 				order.timestamp();
 				longQueue.push(order);
 			});
 
-			for_each(result_vector.begin(), result_vector.end(), [&](string order_str){
+	std::for_each(result_vector.begin(), result_vector.end(), [&](string order_str){
 				Order expected;
-				stringstream stream(order_str);
+				std::stringstream stream(order_str);
 				stream>>expected;
 				Order actual;
 				if ( !longQueue.empty() ) actual = longQueue.top();
@@ -123,7 +122,7 @@ TEST_SUIT(OrderQueueTest)
 		ShortOrderQueue shortQueue;
 
 		//all long orders for same symbols
-		vector<string> test_vector = {
+		std::vector<std::string> test_vector = {
 				"A:GBPUSD:-100:1.66",
 				"B:GBPUSD:-100:1.11",
 				"C:GBPUSD:-50:1.1",
@@ -134,7 +133,7 @@ TEST_SUIT(OrderQueueTest)
 		};
 
 		//expected result of queuing
-		vector<string> result_vector = {
+		std::vector<std::string> result_vector = {
 				"C:GBPUSD:-50:1.1",
 				"G:GBPUSD:-50:1.1",
 				"B:GBPUSD:-100:1.11",
@@ -146,17 +145,17 @@ TEST_SUIT(OrderQueueTest)
 		};
 
 
-		for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
+		std::for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 			Order order;
-			stringstream stream(order_str);
+			std::stringstream stream(order_str);
 			stream>>order;
 			order.timestamp();
 			shortQueue.push(order);
 		});
 
-		for_each(result_vector.begin(), result_vector.end(), [&](string order_str){
+		std::for_each(result_vector.begin(), result_vector.end(), [&](string order_str){
 			Order expected;
-			stringstream stream(order_str);
+			std::stringstream stream(order_str);
 			stream>>expected;
 			Order actual;
 			if ( !shortQueue.empty() ) actual = shortQueue.top();

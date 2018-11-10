@@ -13,8 +13,6 @@
 
 #include "../utils/utility_functions.h"
 
-using namespace std;
-
 enum SeverityLevel {
 	TRACE,
 	DEBUG,
@@ -51,12 +49,12 @@ public:
 		:severity_level(level)
 	{}
 
-	virtual void trace(string msg) = 0;
-	virtual void debug(string msg) = 0;
-	virtual void info(string msg) = 0;
-	virtual void warn(string msg) = 0;
-	virtual void error(string msg) = 0;
-	virtual void fatal(string msg) = 0;
+	virtual void trace(std::string msg) = 0;
+	virtual void debug(std::string msg) = 0;
+	virtual void info(std::string msg) = 0;
+	virtual void warn(std::string msg) = 0;
+	virtual void error(std::string msg) = 0;
+	virtual void fatal(std::string msg) = 0;
 
 
 	virtual ~ILogger() {};

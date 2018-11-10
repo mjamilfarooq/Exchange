@@ -15,12 +15,11 @@
 #include <algorithm>
 #include <sstream>
 
-using namespace std;
 
 TEST_SUIT(OrderExchangeTests)
 	TEST_CASE_BEGIN(test_order_exchange)
 
-			vector<string> test_vector = {
+	std::vector<std::string> test_vector = {
 					"A:GBPUSD:100:1.66",
 					"B:EURUSD:-100:1.11",
 					"F:EURUSD:-50:1.1",
@@ -30,7 +29,7 @@ TEST_SUIT(OrderExchangeTests)
 					"D:EURUSD:100:1.11",
 			};
 
-			vector<string> result_vector = {
+std::vector<std::string> result_vector = {
 					"A:C:GBPUSD:10:1.66",
 					"A:C:GBPUSD:20:1.66",
 					"D:F:EURUSD:50:1.1",
@@ -38,10 +37,10 @@ TEST_SUIT(OrderExchangeTests)
 			};
 
 			OrderExchange exchange(FileLogger::getLogger());
-			vector<Trade> trades;
-			for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
+			std::vector<Trade> trades;
+			std::for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 				Order order;
-				stringstream stream(order_str);
+				std::stringstream stream(order_str);
 				stream>>order;
 				auto temp = exchange.matchAndTrade(order);
 				if (temp.size())
@@ -49,13 +48,13 @@ TEST_SUIT(OrderExchangeTests)
 			});
 
 
-			for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
+			std::for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
 
 				auto actual  = *trades.begin();
 				trades.erase(trades.begin());
 
 				Trade expected;
-				stringstream stream(trade_str);
+				std::stringstream stream(trade_str);
 				stream>>expected;
 
 				TEST_EQUAL(actual, expected, "trade vector failed");
@@ -67,22 +66,22 @@ TEST_SUIT(OrderExchangeTests)
 
 	TEST_CASE_BEGIN(test_exchange_same_buyer)
 
-			vector<string> test_vector = {
+	std::vector<std::string> test_vector = {
 					"A:AUDUSD:100:1.47",
 					"B:AUDUSD:-50:1.45",
 					"A:AUDUSD:-50:1.42",
 			};
 
-			vector<string> result_vector = {
+	std::vector<std::string> result_vector = {
 					"A:B:AUDUSD:50:1.470000",
 					"A:A:AUDUSD:50:1.470000",
 			};
 
 			OrderExchange exchange(FileLogger::getLogger());
-			vector<Trade> trades;
-			for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
+			std::vector<Trade> trades;
+			std::for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 				Order order;
-				stringstream stream(order_str);
+				std::stringstream stream(order_str);
 				stream>>order;
 				auto temp = exchange.matchAndTrade(order);
 				if (temp.size())
@@ -90,13 +89,13 @@ TEST_SUIT(OrderExchangeTests)
 			});
 
 
-			for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
+			std::for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
 
 				auto actual  = *trades.begin();
 				trades.erase(trades.begin());
 
 				Trade expected;
-				stringstream stream(trade_str);
+				std::stringstream stream(trade_str);
 				stream>>expected;
 
 				TEST_EQUAL(actual, expected, "trade vector failed");

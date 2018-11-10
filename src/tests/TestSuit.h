@@ -15,7 +15,6 @@
 
 #include "TestFailedException.h"
 
-using namespace std;
 
 #define TEST_EQUAL(actual, expected, message) \
 	[&](){ \
@@ -54,23 +53,23 @@ using namespace std;
 
 class TestRegistry {
 public:
-	static void registerTestCase(function<void()> func)
+	static void registerTestCase(std::function<void()> func)
 	{
 		function_list.push_back(func);
 	}
 
 	static void execute_all() {
-		for_each(function_list.begin(),
+		std::for_each(function_list.begin(),
 				function_list.end(),
 				[](function<void()> func){
 			func();
 		});
 	}
 private:
-	static vector<function<void()>> function_list;
+	static std::vector<std::function<void()>> function_list;
 };
 
 #define TEST_SUIT_INIT \
-		vector<function<void()>> TestRegistry::function_list;
+		std::vector<std::function<void()>> TestRegistry::function_list;
 
 #endif /* TESTS_TESTSUIT_H_ */

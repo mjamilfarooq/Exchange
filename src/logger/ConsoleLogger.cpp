@@ -6,6 +6,7 @@
  */
 
 #include "ConsoleLogger.h"
+using namespace std;
 
 ConsoleLogger* ConsoleLogger::logger = nullptr;
 mutex ConsoleLogger::mtx;

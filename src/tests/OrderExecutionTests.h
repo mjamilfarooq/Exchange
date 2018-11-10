@@ -15,14 +15,12 @@
 #include <algorithm>
 #include <sstream>
 
-using namespace std;
-
 TEST_SUIT(OrderExecutionTests)
 
 
 	TEST_CASE_BEGIN(test_match_buy_order_first)
 
-			vector<string> test_vector = {
+	std::vector<std::string> test_vector = {
 					"A:GBPUSD:100:1.66",
 //					"B:EURUSD:-100:1.11",
 //					"F:EURUSD:-50:1.1",
@@ -32,7 +30,7 @@ TEST_SUIT(OrderExecutionTests)
 //					"D:EURUSD:100:1.11",
 			};
 
-			vector<string> result_vector = {
+std::vector<std::string> result_vector = {
 					"A:C:GBPUSD:10:1.66",
 					"A:C:GBPUSD:20:1.66",
 //					"D:F:EURUSD:50:1.1",
@@ -40,10 +38,10 @@ TEST_SUIT(OrderExecutionTests)
 			};
 
 			InstrumentLedger ledger(FileLogger::getLogger());
-			vector<Trade> trades;
-			for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
+			std::vector<Trade> trades;
+			std::for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 				Order order;
-				stringstream stream(order_str);
+				std::stringstream stream(order_str);
 				stream>>order;
 
 //				cout<<order;
@@ -53,13 +51,13 @@ TEST_SUIT(OrderExecutionTests)
 			});
 
 
-			for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
+			std::for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
 
 				auto actual  = *trades.begin();
 				trades.erase(trades.begin());
 
 				Trade expected;
-				stringstream stream(trade_str);
+				std::stringstream stream(trade_str);
 				stream>>expected;
 
 				TEST_EQUAL(actual, expected, "trade vector failed");
@@ -71,22 +69,22 @@ TEST_SUIT(OrderExecutionTests)
 
 	TEST_CASE_BEGIN(test_match_sell_order_first)
 
-		vector<string> test_vector = {
+	std::vector<std::string> test_vector = {
 					"B:EURUSD:-100:1.11",
 					"F:EURUSD:-50:1.1",
 					"D:EURUSD:100:1.11",
 		};
 
-		vector<string> result_vector = {
+	std::vector<std::string> result_vector = {
 					"D:F:EURUSD:50:1.1",
 					"D:B:EURUSD:50:1.11",
 		};
 
 		InstrumentLedger ledger(FileLogger::getLogger());
-		vector<Trade> trades;
-		for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
+		std::vector<Trade> trades;
+		std::for_each(test_vector.begin(), test_vector.end(), [&](string order_str){
 			Order order;
-			stringstream stream(order_str);
+			std::stringstream stream(order_str);
 			stream>>order;
 
 //			cout<<order;
@@ -96,13 +94,13 @@ TEST_SUIT(OrderExecutionTests)
 		});
 
 
-		for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
+		std::for_each(result_vector.begin(), result_vector.end(), [&](string trade_str){
 
 			auto actual  = *trades.begin();
 			trades.erase(trades.begin());
 
 			Trade expected;
-			stringstream stream(trade_str);
+			std::stringstream stream(trade_str);
 			stream>>expected;
 
 			TEST_EQUAL(actual, expected, "trade vector failed");

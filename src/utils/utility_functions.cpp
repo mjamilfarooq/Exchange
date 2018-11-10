@@ -8,6 +8,8 @@
 
 #include "utility_functions.h"
 
+using namespace std;
+
 vector<string> split_str(string str, char delimeter)
 {
 	vector<string> split_vector;

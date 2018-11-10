@@ -7,6 +7,8 @@
 
 #include "OrderExchange.h"
 
+using namespace std;
+
 OrderExchange::OrderExchange(ILogger *logger):
 	logger(logger) {
 	TRACE(logger, "Initializing order Exchange");

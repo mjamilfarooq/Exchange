@@ -7,6 +7,8 @@
 
 #include "TradeFile.h"
 
+using namespace std;
+
 TradeFile::TradeFile(ILogger *logger, string file_name):
 	logger(logger){
 

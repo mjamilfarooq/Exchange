@@ -7,6 +7,8 @@
 
 #include "OrderFile.h"
 
+using namespace std;
+
 OrderFile::OrderFile(ILogger *logger, string file_name):
 	logger(logger) {
 	TRACE(logger, "Initialization of Order File " + file_name);

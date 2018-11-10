@@ -18,13 +18,13 @@
 
 class OrderFile: public AbstractOrderPublisher {
 public:
-	OrderFile(ILogger*, string);
+	OrderFile(ILogger*, std::string);
 	void run() override;
 	virtual ~OrderFile();
 private:
 	ILogger *logger;
-	future<void> ft;
-	ifstream orderFile;
+	std::future<void> ft;
+	std::ifstream orderFile;
 };
 
 #endif /* FS_ORDERFILE_H_ */

@@ -14,16 +14,14 @@
 #include "../trade/AbstractTradeConsole.h"
 #include "../logger/ILogger.h"
 
-using namespace std;
-
 class TradeFile: public AbstractTradeConsole {
 public:
-	TradeFile(ILogger*, string);
+	TradeFile(ILogger*, std::string);
 	void update(Trade) override;
 	~TradeFile();
 private:
 	ILogger* logger;
-	ofstream tradeFile;
+	std::ofstream tradeFile;
 };
 
 #endif /* FS_TRADEFILE_H_ */

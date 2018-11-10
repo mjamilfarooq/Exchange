@@ -6,6 +6,7 @@
  */
 
 #include "InstrumentLedger.h"
+using namespace std;
 
 InstrumentLedger::InstrumentLedger(ILogger* logger):
 	logger(logger){

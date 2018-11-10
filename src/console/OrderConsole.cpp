@@ -7,6 +7,8 @@
 
 #include "OrderConsole.h"
 
+using namespace std;
+
 OrderConsole::OrderConsole(ILogger *logger):
 	logger(logger) {
 	TRACE(logger, "Initialization of Order Console");

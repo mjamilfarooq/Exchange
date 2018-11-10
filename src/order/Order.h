@@ -16,7 +16,6 @@
 #include "../errors/messages.h"
 #include "../utils/utility_functions.h"
 
-using namespace std;
 
 class Order
 {
@@ -29,8 +28,8 @@ public:
 	{
 	}
 
-	Order(string id,
-			string instrument,
+	Order(std::string id,
+			std::string instrument,
 			int32_t quantity,
 			double limit_price):
 				id(id),
@@ -42,14 +41,14 @@ public:
 	}
 
 	//initializer when quantity and limit price is string
-	Order(string id,
-			string instrument,
-			string quantity,
-			string limit_price):
+	Order(std::string id,
+			std::string instrument,
+			std::string quantity,
+			std::string limit_price):
 				id(id),
 				instrument(instrument),
-				quantity(stoi(quantity.c_str())),
-				limit_price(stod(limit_price.c_str()))
+				quantity(std::stoi(quantity.c_str())),
+				limit_price(std::stod(limit_price.c_str()))
 	{
 
 	}
@@ -59,33 +58,33 @@ public:
 		return (id!=""&&instrument!=""&&quantity!=0&&limit_price>0.0);
 	}
 
-	string to_string()
+	std::string to_string()
 	{
 		return id+":"+instrument+":"+std::to_string(quantity)+":"+std::to_string(limit_price);
 	}
 
-	friend ostream& operator<<(ostream& os, const Order& order)
+	friend std::ostream& operator<<(std::ostream& os, const Order& order)
 	{
-		os<<order.id<<":"<<order.instrument<<":"<<order.quantity<<":"<<order.limit_price<<endl;
+		os<<order.id<<":"<<order.instrument<<":"<<order.quantity<<":"<<order.limit_price<<std::endl;
 		return os;
 	}
 
-	friend istream& operator>>(istream& is, Order &order)
+	friend std::istream& operator>>(std::istream& is, Order &order)
 	{
-		string line;
+		std::string line;
 		is>>line;
 
 		auto split = split_str(line, ':');
 
 		if (split.size()!=4)
 		{
-			throw runtime_error(INVALID_ORDER_FORMAT);
+			throw std::runtime_error(INVALID_ORDER_FORMAT);
 		}
 
 		order.id = split[0];
 		order.instrument = split[1];
-		order.quantity = stoi(split[2].c_str());
-		order.limit_price = stod(split[3].c_str());
+		order.quantity = std::stoi(split[2].c_str());
+		order.limit_price = std::stod(split[3].c_str());
 
 		return is;
 	}
@@ -141,24 +140,24 @@ public:
 
 	//getters
 
-	string getID() const { return id; }
-	string getInstrument() const { return instrument; }
+	std::string getID() const { return id; }
+	std::string getInstrument() const { return instrument; }
 	int getQuantity() const { return quantity; }
 	double getLimitPrice() const { return limit_price; }
 
 
 	void timestamp() {
-		time = chrono::system_clock::now();
+		time = std::chrono::system_clock::now();
 	}
 
 private:
-	string id;
-	string instrument;
+	std::string id;
+	std::string instrument;
 	mutable int quantity;
 	double limit_price;
 
 	//Time stamped
-	chrono::system_clock::time_point time;
+	std::chrono::system_clock::time_point time;
 
 
 };

@@ -12,8 +12,6 @@
 
 #include "../utils/utility_functions.h"
 
-using namespace std;
-
 class Trade {
 public:
 
@@ -22,9 +20,9 @@ public:
 		matchedPrice(0.0) {
 	}
 
-	Trade(string buyer,
-			string seller,
-			string instrument,
+	Trade(std::string buyer,
+			std::string seller,
+			std::string instrument,
 			uint32_t matchedQuantity,
 			double matchedPrice):
 				buyerid(buyer),
@@ -34,33 +32,33 @@ public:
 				matchedPrice(matchedPrice) {
 	}
 
-	string to_string() const {
+	std::string to_string() const {
 		return buyerid + ":" + sellerid + ":" + instrument + ":"
 				+ std::to_string(matchedQuantity) + ":" + std::to_string(matchedPrice);
 	}
 
-	friend ostream& operator<<(ostream& os, const Trade& trade) {
+	friend std::ostream& operator<<(std::ostream& os, const Trade& trade) {
 		os<<trade.to_string();
 		return os;
 	}
 
-	friend istream& operator>>(istream& is, Trade &trade)
+	friend std::istream& operator>>(std::istream& is, Trade &trade)
 		{
-			string line;
+		std::string line;
 			is>>line;
 
 			auto split = split_str(line, ':');
 
 			if (split.size()!=5)
 			{
-				throw runtime_error("Invalid order format");
+				throw std::runtime_error("Invalid order format");
 			}
 
 			trade.buyerid = split[0];
 			trade.sellerid = split[1];
 			trade.instrument = split[2];
-			trade.matchedQuantity = stoi(split[3].c_str());
-			trade.matchedPrice = stod(split[4].c_str());
+			trade.matchedQuantity = std::stoi(split[3].c_str());
+			trade.matchedPrice = std::stod(split[4].c_str());
 
 			return is;
 		}
@@ -82,9 +80,9 @@ public:
 		}
 
 private:
-	string buyerid;
-	string sellerid;
-	string instrument;
+	std::string buyerid;
+	std::string sellerid;
+	std::string instrument;
 	uint32_t matchedQuantity;
 	double matchedPrice;
 };

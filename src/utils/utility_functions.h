@@ -16,10 +16,7 @@
 #include <iostream>
 #include <ctime>
 
-
-using namespace std;
-
-vector<string> split_str(string, char);
-string current_time();
+std::vector<std::string> split_str(std::string, char);
+std::string current_time();
 
 #endif /* UTILS_UTILITY_FUNCTIONS_H_ */

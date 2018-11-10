@@ -18,12 +18,11 @@
 #include "../logger/ILogger.h"
 #include "../trade/Trade.h"
 
-using namespace std;
+
 using LongOrderQueue = std::priority_queue<Order, std::deque<Order>, std::less<Order>>;
 using ShortOrderQueue = std::priority_queue<Order, std::deque<Order>, std::greater<Order>>;
 
 
-using namespace std;
 
 class InstrumentLedger {
 public:
@@ -31,7 +30,7 @@ public:
 	InstrumentLedger();
 	InstrumentLedger(InstrumentLedger&& ledger);
 	void setLogger(ILogger*);
-	vector<Trade> update(Order);
+	std::vector<Trade> update(Order);
 	~InstrumentLedger();
 private:
 	ILogger* logger;

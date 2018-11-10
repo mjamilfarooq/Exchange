@@ -33,11 +33,11 @@ TEST_SUIT(OrderTest)
 		Order order3("jimmy", "AUDUSD", "456", "45.5");
 		Order order4;
 
-		stringstream strstream;
+		std::stringstream strstream;
 
 		{
 			strstream << order1;	//out stream of order
-			string str;
+			std::string str;
 			strstream >> str;
 
 			TEST_EQUAL(str, "jimmy:AUDUSD:456:45.5", "i/o stream for long order");
@@ -46,7 +46,7 @@ TEST_SUIT(OrderTest)
 
 		{
 			strstream << order2;	//short order
-			string str;
+			std::string str;
 			strstream >> str;
 
 			TEST_EQUAL(str, "jimmy:AUDUSD:-456:45.5", "i/o stream for short order");
@@ -55,7 +55,7 @@ TEST_SUIT(OrderTest)
 		//empty order
 		{
 			strstream << order4;	//empty order
-			string str;
+			std::string str;
 			strstream >> str;
 
 			TEST_EQUAL(str, "::0:0", "streaming of empty order");

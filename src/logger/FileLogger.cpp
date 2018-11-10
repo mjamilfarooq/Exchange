@@ -6,6 +6,7 @@
  */
 
 #include "FileLogger.h"
+using namespace std;
 
 string FileLogger::file_name = DEFAULT_LOG_FILE;
 FileLogger* FileLogger::logger = nullptr;
